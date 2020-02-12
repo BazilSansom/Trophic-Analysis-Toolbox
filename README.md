@@ -13,5 +13,5 @@ This toolbox was written by:
 - Samuel Johnson (University of Birmingham)
 - Jose Moran (CAMS/EHESS)
 
-[1] Macaky, Johnson and Sansom (2020) How directed is a directed network? [Available here](https://www.rebuildingmacroeconomics.ac.uk/how-directed-is-a-directed-network)
+[1] Macaky, Johnson and Sansom (2020) How directed is a directed network? ([Paper available here](https://www.rebuildingmacroeconomics.ac.uk/how-directed-is-a-directed-network))
 
