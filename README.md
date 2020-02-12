@@ -2,7 +2,7 @@
 
 # The Trophic Analysis Toolbox
 
-The Trophic Analysis Toolbox is an easy to use open Matlab and Python toolbox that implements methods from our papers (1,2) on the analysis of flow structure in directed networks, as well as other related methods and performs a wide variety of operations on directed graphs.
+The Trophic Analysis Toolbox is an easy to use open *Matlab* and *Python* toolbox that implements methods from our papers (1,2) on the analysis of flow structure in directed networks, as well as other related methods and performs a wide variety of operations on directed graphs.
 
 At this stage we are still in the process of migrating the toolbox to this repository which we will continue to expand and update
 over time.
