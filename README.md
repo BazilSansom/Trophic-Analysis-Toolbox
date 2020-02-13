@@ -2,7 +2,7 @@
 
 # The Trophic Analysis Toolbox
 
-The Trophic Analysis Toolbox is an easy to use open [*Matlab*](https://github.com/BazilSansom/How-directed-is-a-directed-network/tree/master/Matlab_files) and [*Python*](https://github.com/BazilSansom/How-directed-is-a-directed-network/tree/master/Python_files) toolbox that implements methods for the analysis and visualisation of flow structure in directed networks including trophic levels and coherence (1, 2), as well as other related methods and performs a wide variety of operations on directed graphs.
+The Trophic Analysis Toolbox is an easy to use open [*Matlab*](https://github.com/BazilSansom/How-directed-is-a-directed-network/tree/master/Matlab_files) and [*Python*](https://github.com/BazilSansom/How-directed-is-a-directed-network/tree/master/Python_files) toolbox that implements methods for the analysis and visualisation of flow structure in directed networks using *trophic levels* and *trophic coherence* (1, 2), as well as other related methods and performs a wide variety of operations on directed graphs.
 
 At this stage we are still in the process of migrating the toolbox to this repository which we will continue to expand and update
 over time.
