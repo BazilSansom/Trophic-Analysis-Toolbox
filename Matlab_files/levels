@@ -27,7 +27,7 @@ function [h] = levels(W,varargin)
 %     taken as possible indication of undirected network.
 
 % DEPENDENCIES
-% - parseArgs (included in Trophic Coherence Toolbox).
+% - parseArgs (TC Toolbox).
 
 % REFERENCES
 % - [1] MacKay, Johnson and Sansom (2020) How directed is a directed
