@@ -17,5 +17,6 @@
 **References:**
 -
 
-[1] MacKay, Johnson and Sansom (2020) How directed is a directed network? 
+[1] MacKay, Johnson and Sansom (2020) How directed is a directed network?
+
 (Paper available at: https://arxiv.org/pdf/2001.05173.pdf).
