@@ -19,5 +19,4 @@
 
 [1] MacKay, Johnson and Sansom (2020) How directed is a directed network?
 
-([Paper available here](https://arxiv.org/pdf/2001.05173.pdf))
-([Also as Rebuilding Macroeconomic working paper here:](https://www.rebuildingmacroeconomics.ac.uk/how-directed-is-a-directed-network)).
+Paper available [here](https://arxiv.org/pdf/2001.05173.pdf) and as Rebuilding Macroeconomic working paper [here:](https://www.rebuildingmacroeconomics.ac.uk/how-directed-is-a-directed-network).
