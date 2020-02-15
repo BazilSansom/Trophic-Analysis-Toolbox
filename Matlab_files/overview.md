@@ -1,7 +1,4 @@
 
-Key function is *incoherence* (which also provides a wrapper for *levels*). 
-This function returns *trophic levels* and *trophic incoherence* statistics as per [1]
-
 **Contents**
 -
 - **Examples** provides some examples that illustrate methods/test functions running.
