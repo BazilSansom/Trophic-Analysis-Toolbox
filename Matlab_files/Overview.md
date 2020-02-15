@@ -4,7 +4,7 @@
 - **Examples** provides some examples that illustrate methods/test functions running.
 
 **Core functions:**
-- **incoherence**   returns *trophic levels* (provides a wrapper for *levels*) and *trophic incoherence* statistics as per [1]
+- **incoherence**   returns ***trophic levels*** (provides a wrapper for *levels*) and ***trophic incoherence*** statistics as per [1]
 - **levels**        returns *trophic levels* as per [1]
 
 **Digraph opperations:**
