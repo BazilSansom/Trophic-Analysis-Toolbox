@@ -12,7 +12,7 @@
 - **edge_diff**     takes diferences over each edge (i->j or j->i) for vector of node values
 
 **Auxiliary functions:**
-- **parseArgs**    is a borrowed function that use extensively to allow optional inputs in many functions.
+- **parseArgs**    is a borrowed function that use extensively to allow optional inputs in many functions (from Aslak Grinsted [here](https://uk.mathworks.com/matlabcentral/fileexchange/3696-subaxis-subplot)).
 
 **References:**
 -
