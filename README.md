@@ -14,6 +14,10 @@ This toolbox was written by:
 - Samuel Johnson (*University of Birmingham*)
 - Jose Moran (*University of Oxford*)
 
+Contact: bazil.sansom@warwick.ac.uk
+
+We would be glad to hear from you, happy to address questions, and grateful to receive suggestions or contributions.
+
 ## Papers
 
 [1] Macaky, Johnson and Sansom (2020) How directed is a directed network? ([Paper available here](https://www.rebuildingmacroeconomics.ac.uk/how-directed-is-a-directed-network)).
