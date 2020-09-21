@@ -17,6 +17,7 @@
 **References:**
 -
 
-[1] MacKay, Johnson and Sansom (2020) How directed is a directed network?
+[1] MacKay RS, Johnson S, Sansom B. 2020 How directed is a directed network? *R. Soc. Open Sci.* **7**: 201138.
+http://dx.doi.org/10.1098/rsos.201138
 
 Paper available [here](https://arxiv.org/pdf/2001.05173.pdf) and as Rebuilding Macroeconomic working paper [here](https://www.rebuildingmacroeconomics.ac.uk/how-directed-is-a-directed-network).
