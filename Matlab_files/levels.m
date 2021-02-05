@@ -64,7 +64,8 @@ lambda=diag(u)-W-W';            % our laplacian ([1] Eq.6)
 
 % (2) Solve lambda*h=v for h
 lambda(1,1)=0;   % remove arbitrariness of levels
-h=(lambda^-1)*v;
+%h=(lambda^-1)*v;
+h=linsolve(lambda, v);
 
 % (3) After solving this system subtract min(h) from all h(i), 
 %     yielding the solution h which has min(h)=0, or define other zero
