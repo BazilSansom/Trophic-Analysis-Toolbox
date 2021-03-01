@@ -13,7 +13,7 @@ Functions included are:
 
 - *trophic_plot*         : plots network according to *trophic_layout*
 
-All functions take networkx graph object as input. A full list of dependencies is provided in *requirements*
+All functions take networkx graph object as input. A full list of dependencies is provided in *requirements*.
 
 A small demo of the use of these functions is provided in *demo_trophic_analysis*.
 
