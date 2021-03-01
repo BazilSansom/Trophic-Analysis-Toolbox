@@ -11,8 +11,6 @@ These methods are relevant for anybody studying systems that can be represented 
 
 This toolbox was written by:
 - Bazil Sansom (*University of Warwick*)
-- Samuel Johnson (*University of Birmingham*)
-- Jose Moran (*University of Oxford*)
 
 Contact: bazil.sansom@warwick.ac.uk
 
