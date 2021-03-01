@@ -1,0 +1,9 @@
+# DEPENDENCIES for pip install:
+
+#from scipy.sparse.linalg import spsolve, cg
+#from scipy.sparse import diags, lil_matrix
+#import networkx as nx 
+#import matplotlib.pyplot as plt #is this needed?
+#import numpy as np
+#import random2
+#np.random.seed(4812)
