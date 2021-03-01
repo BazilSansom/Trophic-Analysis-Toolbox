@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[57]:
-
-
 # This Python module is for conductin trophic analysis as introduced by [1], and 
 # also provides tools developed for network visualisation using these methods.
 # Equation numbers refered to in annotation are from [1].
@@ -241,18 +235,6 @@ def trophic_plot(G,
     limits=plt.axis('on') # turns on axis
     ax.tick_params(left=True, labelleft=True)
     plt.ylabel('Trophic Levels')
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:
