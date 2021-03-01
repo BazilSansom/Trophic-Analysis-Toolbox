@@ -64,7 +64,7 @@ def trophic_levels(G):
 
 # Define function to obtaion trophic coherence
 
-def trophic_coherence(G):
+def trophic_incoherence(G):
     ''' 
     This function takes networkx graph object as input, and returns 
     trophic levels and coherence
