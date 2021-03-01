@@ -1,4 +1,4 @@
-# Python module for trophic analysis and visualisation
+# Python module for trophic-analysis and network visualisation
 
 *trophic_tools* is a Python module that provides tools for tophic analysis as introduced by [1] 
 and also provides some tools developed for visualising networks using these methods.
