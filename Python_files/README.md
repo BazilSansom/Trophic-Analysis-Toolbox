@@ -17,7 +17,13 @@ All functions take networkx graph object as input. A full list of dependencies i
 
 A small demo of the use of these functions is provided in *demo_trophic_analysis*.
 
-** Refs: **
+This module was written by Bazil Sansom.
+
+Contact: bazil.sansom@warwick.ac.uk
+
+Contributions welcome!
+
+# Refs:
 
 - [1] MacKay, Johnson & Sansom (2020), "How directed is a directed network", *Royal Society Open Science*, vol. 7, issue 9. doi: https://doi.org/10.1098/rsos.201138
 
