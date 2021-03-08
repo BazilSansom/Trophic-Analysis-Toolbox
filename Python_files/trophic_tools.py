@@ -46,8 +46,9 @@ def trophic_levels(G):
 
     # Checks:
     if not isinstance(G, nx.Graph):
-        print('This function takes networkx graph object')
-        return
+        msg = "This function takes networkx graph object."
+        raise ValueError(msg)
+        
     # Check network weakly connected
     G2 = G.to_undirected(reciprocal=False,as_view=True)
     if nx.is_connected(G2):
@@ -65,7 +66,8 @@ def trophic_levels(G):
         # Should extend to identify components and obtain trohpic levels 
         # for each of these. However layout function currently only takes single 
         # connected component so this needs extending first.
-        print('Network must be weakly connected')
+        msg = 'Network must be weakly connected.'
+        raise ValueError(msg)
         
 
 # Define function to obtaion trophic coherence
@@ -138,14 +140,14 @@ def trophic_layout(G,
     
     # Check networkx graph object
     if not isinstance(G, nx.Graph):
-        print('This function takes networkx graph object')
-        return
+        msg='This function takes networkx graph object'
+        raise ValueError(msg)
     
     # Check network weakly connected
     G2 = G.to_undirected(reciprocal=False,as_view=True)
     if not nx.is_connected(G2):
-        print('Network must be weakly connected')
-        return
+        msg='Network must be weakly connected'
+        raise ValueError(msg)
         
     A = nx.to_numpy_array(G)
     dim=2
