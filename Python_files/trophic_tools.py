@@ -106,6 +106,7 @@ def trophic_layout(G,
                    k=None, 
                    ypos=None, 
                    iterations=50, 
+                   seed=None,    
                    threshold=1e-4):
     ''' 
     This function position nodes in network G using modified Fruchterman-Reingold layout. 
@@ -124,18 +125,40 @@ def trophic_layout(G,
         trophic levels as defined by [1]. Alternatively user can pass any desired possitions as ypos. 
     iterations : integer (default=50)
         Maximum number of iterations taken.
+    seed : integer, tuple, or None (default=None). For reproducible layouts, specify seed for random number generator.
+           This can be an integer; or the output seedState obtained from a previous run of trophic_layout or trophic_plot in order to reporduce
+           the same layout result.
+           If you run:
+               pos1, seedState = trophic_layout(G)
+               pos2, _ = trophic_layout(G,seed=seedState)
+            then pos1==pos2
     threshold: float (default = 1e-4)
         Threshold for relative error in node position changes.
         The iteration stops if the error is below this threshold.
     
     OUTPUTS
         pos a dictionary of possitions for each node in G
+        seedState : (tuple) the seedState needed to reproduce layout obtained (e.g. if you run:
+                        pos1, seedState = trophic_layout(G)
+                        pos2, _ = trophic_layout(G,seed=seedState)
+                  then pos2==pos1
     
     '''
     
     import numpy as np
     import random2
-    np.random.seed(4812)
+    
+    if seed is None or isinstance(seed,int):
+        np.random.seed(seed) # sets seed using default (None) or user specified (int) seed
+        seedState = np.random.get_state() # saves seed state to be returned (for reproducibility of result)
+    elif isinstance(seed,tuple): # allows user to pass seedState obtained from previous run to reproduce same layout
+        np.random.seed(None)
+        np.random.set_state(seed)
+        seedState=seed
+    else:
+        msg = '"Seed should be None (default); integer or tuple (use seedState which is output of trophic_layout).'
+        raise ValueError(msg)
+        
     import networkx as nx
     
     # Check networkx graph object
@@ -217,7 +240,7 @@ def trophic_layout(G,
             break
             
     pos = dict(zip(G, pos))
-    return pos
+    return pos, seedState
 
 
 # Define a function to plot network using trophic_layout
@@ -226,17 +249,15 @@ def trophic_plot(G,
                  k=None, 
                  ypos=None,
                  iterations=50, 
+                 seed=None,
                  threshold=1e-4):
     # This is just a wrapper for trophic_layout that automates some plotting decissions
     
     import matplotlib.pyplot as plt
-    #import numpy as np
     import networkx as nx
     
     F_0,_ = trophic_incoherence(G)
-    pos = trophic_layout(G,k=k,ypos=ypos,iterations=iterations,threshold=threshold)
-    #plt.figure(figsize = (5,5))
-    #nx.draw(G, pos=pos);
+    pos, seedState = trophic_layout(G,k=k,ypos=ypos,iterations=iterations,threshold=threshold, seed=seed)
     fig, ax = plt.subplots(figsize = (10,10))
     nnodes=G.number_of_nodes()
     scale=1/nnodes
@@ -245,3 +266,7 @@ def trophic_plot(G,
     ax.tick_params(left=True, labelleft=True)
     plt.ylabel('Trophic Levels')
     plt.xlabel('Trophic coherence = ' + "{:.2f}".format(1-F_0))
+    
+    return seedState
+
+
