@@ -21,6 +21,8 @@ This module was written by: Bazil Sansom (University of Warwick).
 
 Contact: bazil.sansom@warwick.ac.uk
 
+If you you make use of this code, please quote the paper: MacKay, Johnson & Sansom (2020) [1](https://doi.org/10.1098/rsos.201138)
+
 Contributions welcome!
 
 # Refs:
