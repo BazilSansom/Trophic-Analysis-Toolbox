@@ -260,6 +260,7 @@ def trophic_plot(G,
          Positions will be assigned to every node in G.
     
     OPTIONAL INPUTS
+    Layout options:
     k   : integer or None (default=None). If None the distance is set to 1/sqrt(nnodes) 
         where nnodes is the number of nodes.  Increase this value to spread nodes farther apart on x-axis .
     ypos: array or None (default=None). Initial y-positions for nodes. If None, then use
@@ -276,6 +277,9 @@ def trophic_plot(G,
     threshold: float (default = 1e-4)
         Threshold for relative error in node position changes.
         The iteration stops if the error is below this threshold.
+    
+    Plotting options:
+        title : (str) otionally provide a title for the chart
     
     OUTPUTS
         plots input network G
