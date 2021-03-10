@@ -248,7 +248,8 @@ def trophic_plot(G,
                  ypos=None,
                  iterations=50, 
                  seed=None,
-                 threshold=1e-4):
+                 threshold=1e-4,
+                 title=''):
     '''
     This is just a wrapper for trophic_layout that automates some plotting decissions.
     Has same options and defaults as trophic_layout.
@@ -298,6 +299,7 @@ def trophic_plot(G,
     ax.tick_params(left=True, labelleft=True)
     plt.ylabel('Trophic Levels')
     plt.xlabel('Trophic coherence = ' + "{:.2f}".format(1-F_0))
+    ax.set_title(title)
     
     return seedState
 
