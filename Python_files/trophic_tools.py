@@ -303,7 +303,8 @@ def trophic_plot(G,
     ax.tick_params(left=True, labelleft=True)
     plt.ylabel('Trophic Levels')
     plt.xlabel('Trophic coherence = ' + "{:.2f}".format(1-F_0))
-    ax.set_title(title)
+    font = { "fontweight": "bold", "fontsize": 16}
+    ax.set_title(title,font)
     
     return seedState
 
