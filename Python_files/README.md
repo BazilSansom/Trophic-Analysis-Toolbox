@@ -17,7 +17,7 @@ All functions take networkx graph object as input. A full list of dependencies i
 
 A small demo of the use of these functions is provided in *demo_trophic_analysis*.
 
-This module was written by Bazil Sansom.
+This module was written by: Bazil Sansom (University of Warwick).
 
 Contact: bazil.sansom@warwick.ac.uk
 
