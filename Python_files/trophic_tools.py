@@ -202,7 +202,6 @@ def trophic_layout(G,
     # simple cooling scheme.
     # linearly step down by dt on each iteration so last iteration is size dt.
     dt = t / float(iterations + 1)
-    #delta = np.zeros((pos.shape[0], pos.shape[0], pos.shape[1]), dtype=A.dtype) # why do I preallocate here?
     
     for iteration in range(iterations):
         
@@ -217,7 +216,6 @@ def trophic_layout(G,
                 
         # enforce minimum distance of 0.01
         np.clip(distance, 0.01, None, out=distance)
-          # Note this leads to diagonal elements having 0.01 (nodes have possitive distance from themselves)
         
         # displacement "force"
         displacement = np.einsum('ijk,ij->ik',
@@ -226,7 +224,7 @@ def trophic_layout(G,
         
         # update positions
         length = np.linalg.norm(displacement, axis=-1) # returns the Euclidean norm of each row in displacement (this norm is also called the 2-norm, or Euclidean LENGTH).
-        length = np.where(length < 0.01, 0.01, length)  # enforce: where length<0.01, replace with 0.1, otherwise keep length
+        length = np.where(length < 0.01, 0.01, length)  # enforce: where length<0.01, replace with 0.01, otherwise keep length
         delta_pos = np.einsum('ij,i->ij', displacement, t / length)
         delta_pos[:,1]=0 
         pos += delta_pos 
@@ -251,7 +249,41 @@ def trophic_plot(G,
                  iterations=50, 
                  seed=None,
                  threshold=1e-4):
-    # This is just a wrapper for trophic_layout that automates some plotting decissions
+    '''
+    This is just a wrapper for trophic_layout that automates some plotting decissions.
+    Has same options and defaults as trophic_layout.
+    Will add some plotting options.
+    
+    REQUIRED INPUTS:
+    G   : networkx graph object.
+         Positions will be assigned to every node in G.
+    
+    OPTIONAL INPUTS
+    k   : integer or None (default=None). If None the distance is set to 1/sqrt(nnodes) 
+        where nnodes is the number of nodes.  Increase this value to spread nodes farther apart on x-axis .
+    ypos: array or None (default=None). Initial y-positions for nodes. If None, then use
+        trophic levels as defined by [1]. Alternatively user can pass any desired possitions as ypos. 
+    iterations : integer (default=50)
+        Maximum number of iterations taken.
+    seed : integer, tuple, or None (default=None). For reproducible layouts, specify seed for random number generator.
+           This can be an integer; or the output seedState obtained from a previous run of trophic_layout or trophic_plot in order to reporduce
+           the same layout result.
+           If you run:
+               pos1, seedState = trophic_layout(G)
+               pos2, _ = trophic_layout(G,seed=seedState)
+            then pos1==pos2
+    threshold: float (default = 1e-4)
+        Threshold for relative error in node position changes.
+        The iteration stops if the error is below this threshold.
+    
+    OUTPUTS
+        plots input network G
+        seedState : (tuple) the seedState needed to reproduce layout obtained (e.g. if you run:
+                        seedState = trophic_plot(G)
+                        then this exact plot can be replicated by running
+                        _ = trophic_plot(G,seed=seedState)
+                  
+     '''
     
     import matplotlib.pyplot as plt
     import networkx as nx
