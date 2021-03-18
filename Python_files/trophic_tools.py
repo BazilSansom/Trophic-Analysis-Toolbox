@@ -1,12 +1,24 @@
-# This Python module is for conductin trophic analysis as introduced by [1], and 
-# also provides tools developed for network visualisation using these methods.
-# Equation numbers refered to in annotation are from [1].
+'''
+This Python module is for conducting trophic analysis as introduced by MacKay, Johnson and Sansom in [1], and also provides tools developed for network visualisation using these methods.
+Equation numbers refered to in annotation are from [1].
 
-# Refs:
-#  [1] MacKay, Johnson & Sansom (2020), "How directed is a directed network", Royal Society Open Science
+If you make use of code provided here please site [1].
 
-# Written by: Bazil Sansom
-# Contact: bazil.sansom@warwick.ac.uk
+Functions included are:
+- trophic_levels : returns trophic levels as per [1]
+- trophic_incoherence : returns trophic incoherence as per [1] (where trophic coherence is 1-incoherence)
+- trophic_layout : returns a layout where y-possitions are given by trophic levels, and x-possitions based on a modified force-directed graph drawing algorithm to spread nodes out on the x-axis. For reproducibility, user can save and specify seed.
+- trophic_plot : plots network according to trophic_layout
+
+Refs:
+ [1] MacKay, Johnson & Sansom (2020), "How directed is a directed network", Royal Society Open Science
+
+Written by: Bazil Sansom
+Contact: bazil.sansom@warwick.ac.uk
+
+Contributions welcome!
+
+'''
 
 # DEPENDENCIES for pip install
 #from scipy.sparse.linalg import spsolve, cg
