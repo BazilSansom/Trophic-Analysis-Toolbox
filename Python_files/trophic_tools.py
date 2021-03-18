@@ -25,6 +25,13 @@
 
 # NOTES: this is written to work with networkx, but can easily be modified otherwise.
 
+import numpy as np
+import networkx as nx
+from scipy.sparse.linalg import spsolve
+from scipy.sparse import diags
+from scipy.sparse import diags, lil_matrix
+import matplotlib.pyplot as plt
+
 #### --- TROPHIC ANALYSIS --- #####
 
 # Define function to obtaion trophic levels
@@ -38,11 +45,6 @@ def trophic_levels(G):
         h array of trophic levels
     '''
     # FUNCTION:
-
-    import numpy as np
-    import networkx as nx
-    from scipy.sparse.linalg import spsolve
-    from scipy.sparse import diags
 
     # Checks:
     if not isinstance(G, nx.Graph):
@@ -83,9 +85,6 @@ def trophic_incoherence(G):
       h   array of trophic levels
     '''
     # FUNCION
-    
-    from scipy.sparse import diags, lil_matrix
-    import networkx as nx
     
     h = trophic_levels(G)
     W = nx.adj_matrix(G)
@@ -144,9 +143,6 @@ def trophic_layout(G,
                   then pos2==pos1
     
     '''
-    
-    import numpy as np
-    import random2
     
     if seed is None or isinstance(seed,int):
         np.random.seed(seed) # sets seed using default (None) or user specified (int) seed
@@ -289,9 +285,6 @@ def trophic_plot(G,
                         _ = trophic_plot(G,seed=seedState)
                   
      '''
-    
-    import matplotlib.pyplot as plt
-    import networkx as nx
     
     F_0,_ = trophic_incoherence(G)
     pos, seedState = trophic_layout(G,k=k,ypos=ypos,iterations=iterations,threshold=threshold, seed=seed)
