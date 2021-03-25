@@ -67,6 +67,15 @@ lambda(1,1)=0;   % remove arbitrariness of levels
 %h=(lambda^-1)*v;
 h=linsolve(lambda, v);
 
+% Remove arbitrariness of levels by setting the level of first node to zero
+%lambda_hat=lambda; % The truncated node Laplacian...
+%lambda_hat(:,1)=[]; % Removing a row and column from the Laplacian 
+%lambda_hat(1,:)=[]; % produces an invertible matrix.
+%v_hat=v;            % v with... 
+%v_hat(1)=[];        % row corresponding to fixed node removed.
+%h_hat=linsolve(lambda_hat, v_hat); % solve for vector of levels with row corresponding to fixed node removed
+%h=[0;h_hat]; % full vector of levels with row corresponding to fixed node added back in
+
 % (3) After solving this system subtract min(h) from all h(i), 
 %     yielding the solution h which has min(h)=0, or define other zero
 %     level.
