@@ -78,7 +78,7 @@ def trophic_levels(G):
         raise ValueError(msg)
         
 
-# Define function to obtaion trophic coherence
+# Define function to obtaion trophic incoherence
 
 def trophic_incoherence(G):
     ''' 
@@ -102,6 +102,54 @@ def trophic_incoherence(G):
     
     return F_0, h
 
+
+# Define function to obtaion network Helmholtz-Hodge Decomposition from trophic levels
+
+def HHD(G):
+    ''' 
+    This function takes networkx graph object as input, and returns 
+    network HHD: the HHD enables us to break down the flow on a directed network into 
+    two flow components: potential flow (also directonal or gradient flow) and 
+    circular flow. The potential flow between a pair of nodes is given by the difference 
+    of their potentials obtained by the Helmholtz-Hodge decomposition [ref] or 
+    equivalently trophic-levels (shown in [1]) and runs from a node with higher potential 
+    to a node with lower potential. On the other hand, the circular flow component is 
+    balanced so contributes nothing to node imbalance vector w_in-w_out (Eq.2.3 (the 
+    difference between the flow into and out of each node)).
+    
+    INPUTS
+      G networkx graph object
+    OUTPUTS:
+      F_c circular flow network
+      F_p potential flow network
+    '''
+    # FUNCION
+    
+    # Get trophic levels
+    h = trophic_levels(G)
+    
+    # Obtain flow decompossition F=F_c+F_p
+    W = nx.adj_matrix(G).todense()
+    hj, hi = np.meshgrid(h, h)
+    H=hj-hi
+    F_p = np.multiply((W + W.transpose()),H)
+    F_c = (W - W.transpose()) - F_p 
+    
+    # Directed network with possitive sign ordered pairs
+    for i in range(len(W)):
+        for j in range(len(W)):
+            if F_p[i,j]<0:
+                F_p[j,i]=abs(F_p[i,j])
+                F_p[i,j]=0
+    for i in range(len(W)):
+        for j in range(len(W)):
+            if F_c[i,j]<0:
+                F_c[j,i]=abs(F_c[i,j])
+                F_c[i,j]=0
+    F_c=F_c+0
+    F_p=F_p+0 
+
+    return F_c, F_p
 
 ### -- VISUALISATION  -- ####
 
