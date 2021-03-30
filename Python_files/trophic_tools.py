@@ -136,19 +136,9 @@ def HHD(G):
     F_c = (W - W.transpose()) - F_p 
     
     # Directed network with possitive sign ordered pairs
-    for i in range(len(W)):
-        for j in range(len(W)):
-            if F_p[i,j]<0:
-                F_p[j,i]=abs(F_p[i,j])
-                F_p[i,j]=0
-    for i in range(len(W)):
-        for j in range(len(W)):
-            if F_c[i,j]<0:
-                F_c[j,i]=abs(F_c[i,j])
-                F_c[i,j]=0
-    F_c=F_c+0
-    F_p=F_p+0 
-
+    F_c=np.maximum(0,F_c)
+    F_p=np.maximum(0,F_p)
+    
     return F_c, F_p
 
 ### -- VISUALISATION  -- ####
