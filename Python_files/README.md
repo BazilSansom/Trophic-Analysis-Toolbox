@@ -9,9 +9,13 @@ Functions included are:
 
 - *trophic_incoherence*  : returns trophic incoherence as per [1] (where trophic coherence is 1-incoherence)
 
+- *HHD*                  : provides decomposition of network into *circular flow network* and *directional flow network* using *trophic_levels* (network Helmholtz-Hodge Decomposition (HHD)).
+
 - *trophic_layout*       : returns a layout where y-possitions are given by trophic levels, and x-possitions based on a modified force-directed graph drawing algorithm to spread nodes out on the x-axis. For reproducibility, user can save and specify seed.
 
 - *trophic_plot*         : plots network according to *trophic_layout*
+
+
 
 All functions take networkx graph object as input. A full list of dependencies is provided in *requirements*.
 
