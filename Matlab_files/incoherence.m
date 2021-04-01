@@ -1,4 +1,4 @@
-function [h,F0,eta] = incoherence(W,varargin)
+function [h,F0] = incoherence(W,varargin)
 
 % This function calculates generalised heights and incoherence 
 %  statistics as introduced in ref [1] for any weakly connected directed
@@ -73,10 +73,8 @@ end
 % - COMPUTE STATISTICS -
 
 h=levels(W,'h0',opts.h0);            % obtain trophic levels ([1] Eq.6)
-E=adj2edgelist(W);                   % convert adjacency to edgelist (indices)
-z = edge_diff(h,E,'edgelist','ji');  % height difference on each edge
-L=sum(sum(W));                       % total edge weight
-F0=L^-1*sum(E(:,3).*(z-1).^2);       % F0=F(h) ([1] Eq.7)
+H=(meshgrid(h)-meshgrid(h)'-1).^2;
+F0=sum(sum((W.*H)))/sum(sum(W));     % F0=F(h) ([1] Eq.7)
 eta=(F0/(1-F0))^(1/2);               % ([1] Eq.16) 
 
 end
