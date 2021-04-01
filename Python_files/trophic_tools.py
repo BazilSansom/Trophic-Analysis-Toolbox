@@ -90,15 +90,13 @@ def trophic_incoherence(G):
       F_0 trophic incoherence
       h   array of trophic levels
     '''
-    # FUNCION
+    # FUNCTION
     
     h = trophic_levels(G)
     W = nx.adj_matrix(G)
-    H = lil_matrix(W.shape, dtype=float)    
-    for i, j in zip(W.nonzero()[0], W.nonzero()[1]):
-        H[i,j] = h[j] - h[i] - 1
-    H2 = (H.tocsr()).power(2)
-    F_0 = (W.multiply(H2)).sum() / W.sum()
+    hj, hi = np.meshgrid(h, h)
+    H=np.power([hj-hi-1],2)
+    F_0 = (W.multiply(H)).sum() / W.sum()
     
     return F_0, h
 
