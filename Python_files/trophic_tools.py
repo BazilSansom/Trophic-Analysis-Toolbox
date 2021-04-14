@@ -130,12 +130,23 @@ def HHD(G):
     W = nx.adj_matrix(G).todense()
     hj, hi = np.meshgrid(h, h)
     H=hj-hi
-    F_p = np.multiply((W + W.transpose()),H)
-    F_c = (W - W.transpose()) - F_p 
+    F_p = np.multiply(W ,H)
+    F_c = W - F_p
     
     # Directed network with possitive sign ordered pairs
-    F_c=np.maximum(0,F_c)
-    F_p=np.maximum(0,F_p)
+    for i in range(len(W)):
+        for j in range(len(W)):
+            if F_p[i,j]<0:
+                F_p[j,i]=F_p[j,i]+abs(F_p[i,j])
+                F_p[i,j]=0
+    for i in range(len(W)):
+        for j in range(len(W)):
+            if F_c[i,j]<0:
+                F_c[j,i]=F_c[j,i]+abs(F_c[i,j])
+                F_c[i,j]=0
+                
+    F_c=F_c+0
+    F_p=F_p+0 
     
     return F_c, F_p
 
