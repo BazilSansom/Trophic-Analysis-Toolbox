@@ -298,17 +298,20 @@ def trophic_plot(G,
                  iterations=50, 
                  seed=None,
                  threshold=1e-4,
-                 title=''):
+                 title='',
+                 node_color=[[0, 0.451, 0.7412]]):
     '''
     This is just a wrapper for trophic_layout that automates some plotting decissions.
     Has same options and defaults as trophic_layout.
     Will add some plotting options.
     
     REQUIRED INPUTS:
+    
     G   : networkx graph object.
          Positions will be assigned to every node in G.
     
     OPTIONAL INPUTS
+    
     Layout options:
     k   : integer or None (default=None). If None the distance is set to 1/sqrt(nnodes) 
         where nnodes is the number of nodes.  Increase this value to spread nodes farther apart on x-axis .
@@ -327,8 +330,13 @@ def trophic_plot(G,
         Threshold for relative error in node position changes.
         The iteration stops if the error is below this threshold.
     
-    Plotting options:
+    Plotting options (a selection of draw_networkx options):
         title : (str) otionally provide a title for the chart
+        node_color : color string, or array of floats, (default RGB triplet [0, 0.451, 0.7412])
+                     Node color. Can be a single color format string, or a  sequence of colors with
+                     the same length as nodelist. If numeric values are specified they will be mapped 
+                     to colors using the cmap and vmin,vmax parameters.  See matplotlib.scatter for 
+                     more details.
     
     OUTPUTS
         plots input network G
@@ -344,7 +352,7 @@ def trophic_plot(G,
     fig, ax = plt.subplots(figsize = (10,10))
     nnodes=G.number_of_nodes()
     scale=1/nnodes
-    nx.draw_networkx(G, with_labels=False,pos=pos,node_size=scale*2000,arrowsize=scale*150,width=scale*10, ax=ax);
+    nx.draw_networkx(G, with_labels=False,pos=pos,node_size=scale*2000,arrowsize=scale*150,width=scale*10, ax=ax, node_color=node_color);
     limits=plt.axis('on') # turns on axis
     ax.tick_params(left=True, labelleft=True)
     plt.ylabel('Trophic Levels')
