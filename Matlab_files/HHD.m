@@ -4,7 +4,7 @@ function [F_c, F_p] = HHD(W,varargin)
 % the node imbalances (i.e. node imbalance, our Eq.3 in [1]) and existing
 % edges. Note some edge flows may be negative/reversed or increased. For
 % true circular/directional flow decomposition, see forthecoming paper [2] and function trueCirc().
-% This is the network Helmholtz-Hodge decompossition (provide some references).
+% This is the network Helmholtz-Hodge decompossition (see e.g. [3] and appendix in [1]).
 
 % Inputs:
 %  W : an adjacency matrix (can be weighted)
@@ -22,6 +22,9 @@ function [F_c, F_p] = HHD(W,varargin)
 %          R. Soc. Open Sci. 7: 201138. http://dx.doi.org/10.1098/rsos.201138
 % - [2] Sansom, B, MacKay, RS, Zhou, Y (2021) True circular and directional
 %                  flow decomposition (not yet published).
+% - [3]  Kichikawa et al. (2019) Community structure based on circular
+%                   flow in a large-scale transaction network, 8,﻿Applied Network Science
+
 %Contact: bazil.sansom@warwick.ac.uk
 
 % ------- FUNCTION BEGGINS ------------------------------
