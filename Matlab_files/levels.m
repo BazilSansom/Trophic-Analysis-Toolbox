@@ -57,15 +57,15 @@ end
 % Calculations
 
 % (1) Setup
-k_out=sum(W,2); k_in=sum(W,1)'; % weighted out and in degrees ([1] Eq.2.1)
-u=k_in+k_out;                   % node weight   ([1] Eq.2.2)
+k_out=sum(W,2); k_in=sum(W,1)'; % weighted out and in degrees (Eq.2.1 [1])
+u=k_in+k_out;                   % node weight   (Eq.2.2 [1])
 v=k_in-k_out;                   % node imblance (Eq.2.3 [1])
 lambda=diag(u)-W-W';            % our laplacian (Eq.2.5 [1])
 
 % (2) Solve lambda*h=v for h
 lambda(1,1)=0;   % remove arbitrariness of levels
 %h=(lambda^-1)*v;
-h=linsolve(lambda, v); % solving E1.2.6 [1}
+h=linsolve(lambda, v); % solving Eq.2.6 [1]
 
 % Remove arbitrariness of levels by setting the level of first node to zero
 %lambda_hat=lambda; % The truncated node Laplacian...
