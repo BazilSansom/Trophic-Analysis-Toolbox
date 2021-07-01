@@ -30,9 +30,6 @@ function [h,F0] = incoherence(W,varargin)
 %        our measure of incoherence. F0 = 0 iff all the level differences 
 %        zmn = hn − hm are 1; and F0 = 1 iff all the level differences are 0.
 %        Trophic coherence is thus defined as 1-F0.
-% - eta  the ratio of the edge-weighted mean height difference (which
-%        evaluates to 1-F0) over the standard deviatio of the height
-%        differences, which evaluates to sqrt(F0/(1-F0)). ([1] Eq.16).
 %
 % DEPENDENCIES:
 % - levels              (TC toolbox)
