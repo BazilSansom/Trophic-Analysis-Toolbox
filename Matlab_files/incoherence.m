@@ -37,15 +37,12 @@ function [h,F0] = incoherence(W,varargin)
 % DEPENDENCIES:
 % - levels              (TC toolbox)
 % - adj2edgelist        (TC toolbox)
-% - edge_diff           (TC toolbox)
-%                       (have made this stand alone function as used accross 
-%                       other functions and may be useful general opperation for DG).
 % - parseArgs           (TC toolbox)
 %
 % References
-% - [1] MacKay, Johnson and Sansom (2020) How directed is a directed
-%         network? (Paper available at: https://arxiv.org/pdf/2001.05173.pdf).
-% 
+% - [1] MacKay RS, Johnson S, Sansom B. 2020 How directed is a directed network? 
+%          R. Soc. Open Sci. 7: 201138. http://dx.doi.org/10.1098/rsos.201138
+%
 %Contact: bazil.sansom@warwick.ac.uk
 
 %%%%%%%%%%%%%%   FUNCTION BEGGINS     %%%%%%%%%%%%%%%
@@ -75,7 +72,7 @@ end
 h=levels(W,'h0',opts.h0);            % obtain trophic levels ([1] Eq.6)
 H=(meshgrid(h)-meshgrid(h)'-1).^2;
 F0=sum(sum((W.*H)))/sum(sum(W));     % F0=F(h) ([1] Eq.7)
-eta=(F0/(1-F0))^(1/2);               % ([1] Eq.16) 
+%eta=(F0/(1-F0))^(1/2);               % ([1] Eq.16) 
 
 end
 
