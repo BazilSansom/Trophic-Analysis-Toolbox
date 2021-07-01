@@ -1,6 +1,6 @@
 function [h] = levels(W,varargin)
-% Obtains generalised heights as introduced in [1] (Eq.6). 
-% All equation numbers refer to our paper [1].
+% Obtains generalised heights as introduced in [1] (Eq.2.6 [1]). 
+% All equation numbers refer to our paper in RSOS [1].
 
 % INPUTS
 % Required inputs
@@ -15,7 +15,7 @@ function [h] = levels(W,varargin)
 %
 % Outputs
 % - h    This is vector of heights for each node in W obtained based on 
-%        improved notion of trophic level introduced by [1] (solution to (Eq.6)).
+%        improved notion of trophic level introduced by [1] (solution to (Eq.2.6)).
 %        Standardised around some zero level (defined by 'h0' or default by
 %        which lowest node has level zero).
 
@@ -30,8 +30,8 @@ function [h] = levels(W,varargin)
 % - parseArgs (TC Toolbox).
 
 % REFERENCES
-% - [1] MacKay, Johnson and Sansom (2020) How directed is a directed
-%         network? (Paper available at: https://arxiv.org/pdf/2001.05173.pdf).
+% [1] MacKay RS, Johnson S, Sansom B. 2020 How directed is a directed network? 
+%           R. Soc. Open Sci. 7: 201138. http://dx.doi.org/10.1098/rsos.201138
 % 
 %Contact: bazil.sansom@warwick.ac.uk
 
@@ -57,15 +57,15 @@ end
 % Calculations
 
 % (1) Setup
-k_out=sum(W,2); k_in=sum(W,1)'; % weighted out and in degrees ([1] Eq.1)
-u=k_in+k_out;                   % node weight   ([1] Eq.2)
-v=k_in-k_out;                   % node imblance ([1] Eq.3)
-lambda=diag(u)-W-W';            % our laplacian ([1] Eq.6)
+k_out=sum(W,2); k_in=sum(W,1)'; % weighted out and in degrees ([1] Eq.2.1)
+u=k_in+k_out;                   % node weight   ([1] Eq.2.2)
+v=k_in-k_out;                   % node imblance (Eq.2.3 [1])
+lambda=diag(u)-W-W';            % our laplacian (Eq.2.5 [1])
 
 % (2) Solve lambda*h=v for h
 lambda(1,1)=0;   % remove arbitrariness of levels
 %h=(lambda^-1)*v;
-h=linsolve(lambda, v);
+h=linsolve(lambda, v); % solving E1.2.6 [1}
 
 % Remove arbitrariness of levels by setting the level of first node to zero
 %lambda_hat=lambda; % The truncated node Laplacian...
