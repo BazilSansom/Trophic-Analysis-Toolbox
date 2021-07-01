@@ -1,5 +1,5 @@
 function [s] = standard_levels(W)
-% This function calculates standard trophic levels (Eq.2 [1]) 
+% This function calculates standard trophic levels (Eq.4.2 [1]) 
 % according to [2].
 %
 % INPUTS:
