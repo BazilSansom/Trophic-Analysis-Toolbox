@@ -4,10 +4,10 @@
 - **Examples** provides some examples that illustrate methods/test functions running.
 
 **Core functions:**
-- **incoherence**   returns ***trophic levels*** (provides a wrapper for *levels*) and ***trophic incoherence*** statistics as per [1]
-- **levels**        returns *trophic levels* as per [1]
-- **standard_levels** returns trophic levels with fixed basal nodes as per [4]
-- **HHD**           returns network Helmholtz-Hodge Decomposition based on trophic levels (see appendix of [1])
+- **incoherence**        returns ***trophic levels*** (provides a wrapper for *levels*) and ***trophic incoherence*** statistics as per [1]
+- **levels**             returns *trophic levels* as per [1]
+- **standard_levels**    returns trophic levels with fixed basal nodes as per [4]
+- **HHD** and **mcHHD**  returns network Helmholtz-Hodge Decomposition based on trophic levels (see appendix of [1])
 
 **Digraph opperations:**
 - **adj2edgelist**  converts adjacency matrix to edgelist
