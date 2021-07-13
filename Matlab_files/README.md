@@ -6,6 +6,7 @@
 **Core functions:**
 - **incoherence**   returns ***trophic levels*** (provides a wrapper for *levels*) and ***trophic incoherence*** statistics as per [1]
 - **levels**        returns *trophic levels* as per [1]
+- **HHD**           returns network Helmholtz-Hodge Decomposition based on trophic levels (see appendix of [1])
 
 **Digraph opperations:**
 - **adj2edgelist**  converts adjacency matrix to edgelist
