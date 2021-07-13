@@ -24,6 +24,6 @@ http://dx.doi.org/10.1098/rsos.201138 (Paper available [here](https://doi.org/10
 
 [2] Johnson S, Domínguez-García V, Donetti L and Muñoz MA (2014) "Trophic coherence determines food-web stability", PNAS, 111 (50), 17923-17928. https://doi.org/10.1073/pnas.1409077111
 
-[3] Sansom,B, Johnson S, and MacKay RS (2021) "Trophic incoherence drives sytemic risk in financial exposure networks", Rebuilding Macroeconomics Working Paper Series, Working Paper No.39 (Paper available [here](https://warwick.ac.uk/fac/sci/maths/people/staff/sansom/sansom_2021.pdf)).
+[3] Sansom,B, Johnson S, and MacKay RS (2021) "Trophic incoherence drives sytemic risk in financial exposure networks", Rebuilding Macroeconomics Working Paper Series, Working Paper No.39 (Paper available [here](https://warwick.ac.uk/fac/sci/maths/people/staff/sansom/sansom_2021.pdf) and [here](https://www.rebuildingmacroeconomics.ac.uk/economies-stable)).
 
-[4] Levine S. (1980) Several measures of trophic structure applicable to complex food webs. J. Theor. Biol. 83, 195–207. (doi:10.1016/0022-5193(80)90288-X)
+[4] Levine S. (1980) Several measures of trophic structure applicable to complex food webs. J. Theor. Biol. 83, 195–207. https://doi:10.1016/0022-5193(80)90288-X
