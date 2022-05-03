@@ -18,7 +18,7 @@ nodeIDs=(1:size(NodeList,1))';
 edgeNums=zeros(size(EdgeList,1),size(EdgeList,2));
 
 for i=1:size(EdgeList,1)
-  for j=1:size(EdgeList,2)   
+  for j=1:2  
    ind=strcmp(EdgeList(i,j),NodeList(:,1));
    edgeNums(i,j)=nodeIDs(ind);
   end 
