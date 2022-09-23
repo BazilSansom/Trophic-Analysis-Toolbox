@@ -1,4 +1,4 @@
-function [h,F0] = incoherence(W,varargin)
+function [h,F0,eta] = incoherence(W,varargin)
 
 % This function calculates generalised heights and incoherence 
 %  statistics as introduced in ref [1] for any weakly connected directed
@@ -30,11 +30,14 @@ function [h,F0] = incoherence(W,varargin)
 %        our measure of incoherence. F0 = 0 iff all the level differences 
 %        zmn = hn − hm are 1; and F0 = 1 iff all the level differences are 0.
 %        Trophic coherence is thus defined as 1-F0.
+% - eta  the ratio of the edge-weighted mean height difference (which
+%        evaluates to 1-F0) over the standard deviation of the height
+%        differences, which evaluates to sqrt(F0/(1-F0)). ([1] Eq.16).
 %
 % DEPENDENCIES:
-% - levels              (TC toolbox)
-% - adj2edgelist        (TC toolbox)
 % - parseArgs           (TC toolbox)
+% - levels              (TC toolbox)
+%     |_ parseArgs      (TC Toolbox).
 %
 % References
 % - [1] MacKay RS, Johnson S, Sansom B. 2020 How directed is a directed network? 
@@ -69,7 +72,7 @@ end
 h=levels(W,'h0',opts.h0);            % obtain trophic levels ([1] Eq.6)
 H=(meshgrid(h)-meshgrid(h)'-1).^2;
 F0=sum(sum((W.*H)))/sum(sum(W));     % F0=F(h) ([1] Eq.7)
-%eta=(F0/(1-F0))^(1/2);               % ([1] Eq.16) 
+eta=(F0/(1-F0))^(1/2);               % ([1] Eq.16) 
 
 end
 
